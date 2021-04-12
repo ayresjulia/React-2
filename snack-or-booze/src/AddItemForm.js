@@ -4,7 +4,9 @@ import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 import "./AddItemForm.css";
 
-function AddItemForm () {
+/* Form to add a new snack or drink to db. */
+
+const AddItemForm = () => {
 	const INITIAL_STATE = {
 		type: "",
 		id: "",
@@ -16,26 +18,28 @@ function AddItemForm () {
 	const [ formData, setFormData ] = useState(INITIAL_STATE);
 	const history = useHistory();
 
-	function handleChange (e) {
+	const handleChange = (e) => {
 		const { name, value } = e.target;
 		setFormData((formData) => ({
 			...formData,
 			[name]: value
 		}));
-	}
+	};
 
-	function handleSubmit (e) {
+	/* Post data to db according to item type. */
+
+	const handleSubmit = (e) => {
 		e.preventDefault();
 		axios.post(`http://localhost:5000/${formData.type}`, { ...formData });
 		setFormData(INITIAL_STATE);
 		history.push("/");
-	}
+	};
 
 	return (
 		<div className="Form">
 			<Form className="Form-body" onSubmit={handleSubmit}>
 				<FormGroup>
-					<Label htmlFor="type">Item to add</Label>
+					<Label htmlFor="type">Items to add</Label>
 					<Input
 						className="Form-input"
 						value={formData.type}
@@ -106,6 +110,6 @@ function AddItemForm () {
 			</Form>
 		</div>
 	);
-}
+};
 
 export default AddItemForm;

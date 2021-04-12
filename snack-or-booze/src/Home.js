@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardBody, CardTitle } from "reactstrap";
 
-function Home ({ snacks, drinks }) {
+const Home = ({ snacks, drinks }) => {
 	return (
 		<section className="col-md-8">
 			<Card>
@@ -20,6 +20,6 @@ function Home ({ snacks, drinks }) {
 			</Card>
 		</section>
 	);
-}
+};
 
 export default Home;

@@ -3,7 +3,7 @@ import "./NavBar.css";
 import { NavLink } from "react-router-dom";
 import { Navbar, Nav, NavItem } from "reactstrap";
 
-function NavBar () {
+const NavBar = () => {
 	return (
 		<div>
 			<Navbar expand="md">
@@ -24,6 +24,6 @@ function NavBar () {
 			</Navbar>
 		</div>
 	);
-}
+};
 
 export default NavBar;
