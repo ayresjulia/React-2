@@ -43,13 +43,13 @@ const App = () => {
 						<Home snacks={snacks} drinks={drinks} />
 					</Route>
 					<Route exact path="/snacks">
-						<Menu snacks={snacks} title="Snacks" />
+						<Menu items={snacks} title="Snacks" />
 					</Route>
 					<Route path="/snacks/:id">
 						<Item items={snacks} cantFind="/snacks" />
 					</Route>
 					<Route exact path="/drinks">
-						<Menu drinks={drinks} title="Drinks" />
+						<Menu items={drinks} title="Drinks" />
 					</Route>
 					<Route path="/drinks/:id">
 						<Item items={drinks} cantFind="/drinks" />

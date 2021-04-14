@@ -5,38 +5,23 @@ import { Card, CardBody, CardTitle, CardText, ListGroup, ListGroupItem } from "r
 
 /* Menu changes according to data type. */
 
-const Menu = ({ snacks, drinks }) => {
+const Menu = ({ items, title }) => {
 	return (
 		<section className="col-md-4">
 			<Card>
 				<CardBody>
-					{snacks && (
-						<CardTitle className="font-weight-bold text-center">Food Menu</CardTitle>
-					)}
-					{drinks && (
-						<CardTitle className="font-weight-bold text-center">Bar Menu</CardTitle>
-					)}
+					<CardTitle className="font-weight-bold text-center">{title}</CardTitle>
 					<CardText>
 						Some quick example text to build on the card title and make up the bulk of
 						the card's content.
 					</CardText>
-					{snacks && (
+					{items && (
 						<ListGroup>
-							{snacks.map((snack) => (
-								<Link to={`/snacks/${snack.id}`} key={snack.id}>
-									<ListGroupItem>{snack.name}</ListGroupItem>
+							{items.map((item) => (
+								<Link to={`/${title}/${item.id}`} key={item.id}>
+									<ListGroupItem>{item.name}</ListGroupItem>
 								</Link>
 							))}{" "}
-						</ListGroup>
-					)}
-
-					{drinks && (
-						<ListGroup>
-							{drinks.map((drink) => (
-								<Link to={`/drinks/${drink.id}`} key={drink.id}>
-									<ListGroupItem>{drink.name}</ListGroupItem>
-								</Link>
-							))}
 						</ListGroup>
 					)}
 				</CardBody>
